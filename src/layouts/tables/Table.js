@@ -1,33 +1,34 @@
-// Table.js
-
 import React from "react";
+import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from "@mui/material";
 
-function Table({ data }) {
+function EnhancedTable({ data }) {
   if (data.length === 0) return null;
 
-  // Assuming data[0] contains headers
   const headers = Object.keys(data[0]);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {headers.map((header, index) => (
-            <th key={index}>{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
+    <TableContainer component={Paper} style={{ marginLeft: "10%" }}>
+      <Table>
+        <TableHead style={{ backgroundColor: "lightblue" }}>
+          <TableRow>
             {headers.map((header, index) => (
-              <td key={index}>{row[header]}</td>
+              <TableCell key={index}>{header}</TableCell>
             ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          </TableRow>
+    
+        <TableBody style={{ backgroundColor: "white" }}>
+          {data.map((row, index) => (
+            <TableRow key={index}>
+              {headers.map((header, index) => (
+                <TableCell key={index} align="center">{row[header]}</TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+        </TableHead>
+      </Table>
+    </TableContainer>
   );
 }
 
-export default Table;
+export default EnhancedTable;
