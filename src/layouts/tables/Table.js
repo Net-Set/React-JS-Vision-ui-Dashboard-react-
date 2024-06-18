@@ -1,34 +1,38 @@
 import React from "react";
-import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from "@mui/material";
+import "./Table.css"; // Import your CSS file for styling
+import VuiBox from "components/VuiBox"; // Assuming VuiBox is a Vision UI component
 
-function EnhancedTable({ data }) {
+function Table({ data }) {
   if (data.length === 0) return null;
 
+  // Assuming data[0] contains headers
   const headers = Object.keys(data[0]);
 
   return (
-    <TableContainer component={Paper} style={{ marginLeft: "10%" }}>
-      <Table>
-        <TableHead style={{ backgroundColor: "lightblue" }}>
-          <TableRow>
-            {headers.map((header, index) => (
-              <TableCell key={index}>{header}</TableCell>
-            ))}
-          </TableRow>
-    
-        <TableBody style={{ backgroundColor: "white" }}>
-          {data.map((row, index) => (
-            <TableRow key={index}>
+    <div className="table-container" >
+      
+      <VuiBox lx={{ height: "90%" }}>
+        <table className="custom-table">
+          <thead style={{backgroundColor:"ActiveBorder",color:"white"}}>
+            <tr>
               {headers.map((header, index) => (
-                <TableCell key={index} align="center">{row[header]}</TableCell>
+                <th key={index}>{header}</th>
               ))}
-            </TableRow>
-          ))}
-        </TableBody>
-        </TableHead>
-      </Table>
-    </TableContainer>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {headers.map((header, colIndex) => (
+                  <td key={colIndex}>{row[header]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </VuiBox>
+    </div>
   );
 }
 
-export default EnhancedTable;
+export default Table;

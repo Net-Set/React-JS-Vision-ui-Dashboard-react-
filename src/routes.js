@@ -121,15 +121,7 @@ const routes = [
     component: SignUp,
     noCollapse: true,
   },
-  {
-    type: "collapse",
-    name: "Data Import",
-    key: "tables",
-    route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: Tables,
-    noCollapse: true,
-  },
+
 ];
 
 export default routes;

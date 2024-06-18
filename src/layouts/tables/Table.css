@@ -1,0 +1,38 @@
+/* Table.css */
+
+.table-container {
+    margin-left: 5%;
+    margin-top:5%;
+    background-color: #080d27; /* Dark blue background */
+    color: #ffffff; /* White font color */
+    overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Optional: Add space above the table */
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px;
+    text-align: left;
+    color:aliceblue;
+    border: 1px solid #ffffff; /* White border around cells */
+    white-space: nowrap; /* Prevent wrapping for long text */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .table-container {
+      margin-left: 0;
+      overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+    }
+  
+    .custom-table th,
+    .custom-table td {
+      padding: 8px;
+    }
+  }
+  
